@@ -2600,7 +2600,8 @@
 \fi%
 }
 
-\RequirePackage{suffix}
+\RequirePackage{xparse}
 
-\newcommand\hummingbird{\expllogo}
-\WithSuffix\newcommand\hummingbird*{\explbanner}
+\NewDocumentCommand{\hummingbird}{s}{%
+  \IfBooleanTF{#1}{\explbanner}{\expllogo}%
+}
